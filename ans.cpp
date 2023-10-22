@@ -53,10 +53,10 @@ private: Vi ps; ll n;
 };
 template<typename T> VV<T> rotate(VV<T> m) {
     int h = m.size(), w = m.at(0).size(); VV<T> r(w, V<T>(h));
-    rep(i, 0, w)rrep(j, 0, h) r[i][h-j] = m[i][j];
+    rep(i, 0, w)rrep(j, 0, h) r[i][h-j-1] = m[j][i];
     return r;
 } // rotates vector of vectors clockwise
-template<typename T> VV<T> shift(VV<T> m, int n, bool vertical = true) {
+template<typename T> VV<T> shift(VV<T> m, int n, bool vertical = false) {
     int h = (int)m.size(), w = (int)m.at(0).size(); VV<T> r(h);
     if(vertical) rep(i, 0, h) r[i] = m[(i + n) % h];
     else rep(i, 0, h)rep(j, 0, w) r[i].push_back(m[i][(j + n) % w]);
@@ -90,5 +90,5 @@ int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     // write below
-
+    
 }
